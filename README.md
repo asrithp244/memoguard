@@ -50,8 +50,8 @@ Microphone → C++ Audio Buffer (whisper.cpp)
 → Behavior Dispatcher
 → TTS Response (pyttsx3)
 → Audit Logger (JSON)
-# whisper-json.cpp compiles against whisper.cpp library (C++)
-# Pipeline orchestration and guardrails in Python
+### whisper-json.cpp compiles against whisper.cpp library (C++)
+### Pipeline orchestration and guardrails in Python
 
 ## Guardrail Evaluation (25-case red-team test)
 
