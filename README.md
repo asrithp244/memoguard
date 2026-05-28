@@ -8,10 +8,22 @@ A real-time voice interaction system with adversarial guardrails for domestic ro
 | Method | Avg Latency |
 |---|---|
 | Python faster-whisper | 6,000–18,000ms |
-| **C++ whisper.cpp** | **~1,500ms** |
+| **C++ whisper.cpp** | **~1,000ms** |
 
 **10x speedup** from the C++ hot path.
 
+### Noise Robustness (whisper.cpp on JFK sample)
+| Noise Type | SNR 20dB | SNR 10dB | SNR 0dB |
+|---|---|---|---|
+| White noise | 0.00 | 0.09 | 0.18 |
+| Kitchen noise | 0.09 | 0.05 | 0.00 |
+| Street noise | 0.09 | 0.00 | 0.00 |
+| **Clean** | **0.00** | — | — |
+
+WER (Word Error Rate) — lower is better. 0.00 = perfect transcription.
+Latency stable at ~1,000ms regardless of noise level.
+
+![Benchmark](benchmark.png)
 ### Guardrail Performance
 | Layer | Method | Latency |
 |---|---|---|
