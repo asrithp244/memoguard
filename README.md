@@ -115,9 +115,12 @@ python main.py
 
 Every interaction is logged with full latency breakdown:
 ```json
-{"timestamp": "2026-05-28T16:41:49", "utterance": "Set a 5 minute timer.",
- "intent": {"intent": "set_timer", "duration_minutes": 5, "confidence": 0.95},
- "guard": {"blocked": false, "scores": {"injection": 0.355, "ood": 0.221, "in_domain": 0.671}},
- "response": "Timer set for 5 minutes.",
- "latency_ms": {"stt": 1050, "guardrail": 12, "nlu": 2766, "total": 4891}
+{
+  "timestamp": "2026-05-28T16:41:49",
+  "utterance": "Set a 5 minute timer.",
+  "intent": {"intent": "set_timer", "duration_minutes": 5, "confidence": 0.95},
+  "guard": {"blocked": false, "scores": {"injection": 0.355, "ood": 0.221, "in_domain": 0.671}},
+  "response": "Timer set for 5 minutes.",
+  "latency_ms": {"stt": 1050, "guardrail": 12, "nlu": 2766, "total": 4891}
+}
 ```
