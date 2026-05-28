@@ -50,6 +50,8 @@ Microphone → C++ Audio Buffer (whisper.cpp)
 → Behavior Dispatcher
 → TTS Response (pyttsx3)
 → Audit Logger (JSON)
+# whisper-json.cpp compiles against whisper.cpp library (C++)
+# Pipeline orchestration and guardrails in Python
 
 ## Guardrail Evaluation (25-case red-team test)
 
@@ -98,7 +100,10 @@ python -m venv memogaurd
 memogaurd\Scripts\activate   # Windows
 
 # Install dependencies
-pip install faster-whisper sounddevice scipy numpy requests sentence-transformers pyttsx3
+pip install sounddevice scipy numpy requests sentence-transformers pyttsx3
+
+# faster-whisper is used as fallback only if whisper.cpp binary is unavailable
+pip install faster-whisper
 
 # Install Ollama from https://ollama.com and pull model
 ollama pull llama3.2
@@ -115,5 +120,5 @@ Every interaction is logged with full latency breakdown:
  "intent": {"intent": "set_timer", "duration_minutes": 5, "confidence": 0.95},
  "guard": {"blocked": false, "scores": {"injection": 0.355, "ood": 0.221, "in_domain": 0.671}},
  "response": "Timer set for 5 minutes.",
- "latency_ms": {"stt": 6789, "guardrail": 10, "nlu": 2766, "total": 9732}}
+ "latency_ms": {"stt": 1050, "guardrail": 12, "nlu": 2766, "total": 4891}
 ```
