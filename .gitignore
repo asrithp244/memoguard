@@ -1,0 +1,5 @@
+memogaurd/ 
+__pycache__/ 
+*.pyc 
+audit.log 
+test_*.py 
